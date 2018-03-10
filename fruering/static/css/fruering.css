@@ -7,3 +7,19 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "Noto Serif", serif;
 }
+
+h1{font-size:46px;}
+h2{font-size:32px;}
+h3{font-size:22px;}
+h4{font-size:16px;}
+h5{font-size:16px;}
+h6{font-size:16px;}
+
+.w3-tiny {font-size:8px;}
+.w3-small {font-size:11px;}
+.w3-medium {font-size:16px;}
+.w3-large{font-size:22px;}
+.w3-xlarge{font-size:32px;}
+.w3-xxlarge{font-size:46px;}
+.w3-xxxlarge{font-size:64px;}
+.w3-jumbo{font-size:90px;}
