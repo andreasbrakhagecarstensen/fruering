@@ -31,15 +31,17 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
+        <div class="w3-content" style="max-width: 1200px">
+             {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+            {% block content %}{% endblock %}
 
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/fruering.js' %}"></script>
+            {# Global javascript #}
+            <script type="text/javascript" src="{% static 'js/fruering.js' %}"></script>
 
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
+            {% block extra_js %}
+                {# Override this in templates to add extra javascript #}
+            {% endblock %}
+        </div>
     </body>
 </html>
