@@ -31,7 +31,11 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-        <div class="w3-content" style="max-width: 1200px">
+
+        <div class="w3-content" style="max-width: 800px">
+            <header>
+                <div class="title">Fruering Borgerforening</div>
+            </header>
              {% wagtailuserbar %}
 
             {% block content %}{% endblock %}
