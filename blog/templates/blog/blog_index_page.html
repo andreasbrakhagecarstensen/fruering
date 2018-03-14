@@ -10,11 +10,20 @@
         </div>
         <section id="blog_entries">
             {% for post in blogpages %}
-                <article class="w3-panel w3-card-2 w3-hover-shadow">
-                    <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-                    {{ post.specific.intro }}
-                    {{ post.specific.body|richtext }}
-                </article>
+                {%  cycle True False as row silent %}
+                {% if row %}
+                    <div class="w3-row-padding">
+                {% endif %}
+                <div class="w3-col m6">
+                        <article class="w3-panel w3-card-2 w3-hover-shadow">
+                            <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                            {{ post.specific.intro }}
+                            {{ post.specific.body|richtext }}
+                        </article>
+                </div>
+                {% if not row or forloop.last %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </section>
     </section>

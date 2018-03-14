@@ -9,7 +9,8 @@ h1, h2, h3, h4, h5, h6, .title {
 }
 
 .title {font-size: 48px;}
-@media (max-width: 580px) {
+.title a {text-decoration: none;}
+@media (max-width: 600px) {
     .title {font-size: 36px;}
 }
 
@@ -19,9 +20,11 @@ h3{font-size:21px;}
 h4{font-size:18px;}
 h5{font-size:16px;}
 h6{font-size:14px;}
-@media (max-width: 430px) {
-    .title {font-size: 32px;}
-    h1{font-size:28px;}
+@media (max-width: 460px) {
+    .title {font-size: 28px;}
+    h1{font-size:24px;}
+    h2{font-size:21px;}
+    h3{font-size:18px;}
 }
 
 .w3-tiny {font-size:8px;}
