@@ -38,22 +38,23 @@
                 <div class="w3-container title w3-padding-32"><a href="#">Fruering Borgerforening</a></div>
             </header>
              {% wagtailuserbar %}
-            <nav class="w3-bar w3-dark-grey">
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">Nyheder</a>
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">Aktiviteter</a>
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">Information</a>
-                <a href="#" class="w3-bar-item w3-button w3-hover-blue">Kontakt</a>
-            </nav>
+            {% include "nav.html" %}
             <section id="content" class="w3-padding-16">
                 {% block content %}{% endblock %}
             </section>
 
-            {# Global javascript #}
-            <script type="text/javascript" src="{% static 'js/fruering.js' %}"></script>
+
 
             {% block extra_js %}
                 {# Override this in templates to add extra javascript #}
             {% endblock %}
         </div>
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/fruering.js' %}"></script>
+        {% block javacript %}
+        {% endblock %}
+        <script language="JavaScript">
+
+        </script>
     </body>
 </html>
