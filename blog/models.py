@@ -1,10 +1,11 @@
 from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.core.fields import RichTextField
-from wagtail.core.models import Page
+
+from core.models import BasePage
 
 
-class BlogIndexPage(Page):
+class BlogIndexPage(BasePage):
     intro = RichTextField(blank=True)
 
     def get_context(self, request, *args, **kwargs):
@@ -13,17 +14,17 @@ class BlogIndexPage(Page):
         context['blogpages'] = blogpages
         return context
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel('intro', classname="full")
     ]
 
 
-class BlogPage(Page):
+class BlogPage(BasePage):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('body', classname='full'),
