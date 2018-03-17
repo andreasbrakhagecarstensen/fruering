@@ -1,13 +1,13 @@
+{% load wagtailcore_tags %}
+
 <nav id="medium-large-navigation" class="w3-bar w3-dark-grey">
-    <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-hide-small">Nyheder</a>
-    <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-hide-small">Aktiviteter</a>
-    <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-hide-small">Information</a>
-    <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-hide-small">Kontakt</a>
+    {% for menu_item in menu_items %}
+         <a href="{% pageurl menu_item %}" class="w3-bar-item w3-button w3-hover-blue w3-hide-small">{{ menu_item.title }}</a>
+    {% endfor %}
     <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-hide-large w3-hide-medium" onclick="toggleSmallNav()">&#9776;</a>
 </nav>
-<nav id="small-nav" class="w3-bar-block w3-dark-grey w3-hide w3-hide-medium w3-hide-large">
-    <a href="#" class="w3-bar-item w3-button w3-hover-blue">Nyheder</a>
-    <a href="#" class="w3-bar-item w3-button w3-hover-blue">Aktiviteter</a>
-    <a href="#" class="w3-bar-item w3-button w3-hover-blue">Information</a>
-    <a href="#" class="w3-bar-item w3-button w3-hover-blue">Kontakt</a>
+<nav id="small-nav" class="w3-bar-block w3-blue w3-hide w3-hide-medium w3-hide-large">
+    {% for menu_item in menu_items %}
+        <a href="{% pageurl menu_item %}" class="w3-bar-item w3-button w3-hover-dark-grey">{{ menu_item.title }}</a>
+    {% endfor %}
 </nav>
