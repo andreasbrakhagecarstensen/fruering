@@ -18,6 +18,8 @@ class BlogIndexPage(BasePage):
         FieldPanel('intro', classname="full")
     ]
 
+    subpage_types = ['blog.BlogPage']
+
 
 class BlogPage(BasePage):
     date = models.DateField("Post date")
@@ -29,3 +31,6 @@ class BlogPage(BasePage):
         FieldPanel('intro'),
         FieldPanel('body', classname='full'),
     ]
+
+    parent_page_types = ["blog.BlogIndexPage"]
+    subpage_types = []
