@@ -9,7 +9,7 @@
         <h1>{{ page.title }}</h1>
         <span class="w3-small">{{ page.date }}</span>
         <p>{{ page.intro }}</p>
-        {{ page.body || richtext }}
-        <p><a href="{{ page.get_parent_url }}">Return to blog</a> </p>
+        {{ page.body | richtext }}
+        <p><a href="{{ page.get_parent.url }}">Return to blog</a> </p>
     </section>
 {% endblock %}
