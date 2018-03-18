@@ -23,20 +23,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
+        {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/w3.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/fruering.css' %}">
-        <link href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" rel="stylesheet">
-
+        <link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}">
+        {% endblock %}
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="w3-text-theme {% block body_class %}{% endblock %}">
 
         <div class="w3-content" style="max-width: 900px">
             <header>
-                <div class="w3-container title w3-padding-32"><a href="{% pageurl homepage %}">Fruering Borgerforening</a></div>
+                <div class="w3-container w3-text-theme title w3-padding-32"><a href="{% pageurl homepage %}">Fruering Borgerforening</a></div>
             </header>
              {% wagtailuserbar %}
             {% include "nav.html" %}
