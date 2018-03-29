@@ -99,7 +99,7 @@ DATABASES = {
 }
 
 
-# Password validation
+# Password validationÅ
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -121,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'da-dk'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
