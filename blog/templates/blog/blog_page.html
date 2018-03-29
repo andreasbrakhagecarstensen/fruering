@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block blody_class %}template-blogpage{% endblock %}
 
@@ -10,6 +10,20 @@
         <span class="w3-small">{{ page.date }}</span>
         <p>{{ page.intro }}</p>
         {{ page.body | richtext }}
+
+            {% for item in page.gallery_images.all %}
+                {%  cycle  1 2 3 as row_item_number silent %}
+                {% if row_item_number == 1 %}
+                    <div class="w3-row-padding">
+                {% endif %}
+                        <div class="w3-col m4 w3-mobile w3-center">
+                            {% image item.image max-800x800 class="w3-image"%}
+                            <p>{{ item.caption }}</p>
+                        </div>
+                {% if row_item_number == 3 or forloop.last %}
+                    </div>
+                {% endif %}
+            {% endfor %}
         <p><a href="{{ page.get_parent.url }}">Return to blog</a> </p>
     </section>
 {% endblock %}

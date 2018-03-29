@@ -1,6 +1,11 @@
 from django.db import models
-from wagtail.admin.edit_handlers import FieldPanel
+
+from modelcluster.fields import ParentalKey
+
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
 from wagtail.core.fields import RichTextField
+from wagtail.core.models import Orderable
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 from core.models import BasePage
 
@@ -30,7 +35,19 @@ class BlogPage(BasePage):
         FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('body', classname='full'),
+        InlinePanel('gallery_images', label="Gallery images"),
     ]
 
     parent_page_types = ["blog.BlogIndexPage"]
     subpage_types = []
+
+
+class BlogPageGalleryImage(Orderable):
+    page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ForeignKey('wagtailimages.Image', on_delete=models.CASCADE, related_name='+')
+    caption = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        ImageChooserPanel('image'),
+        FieldPanel('caption'),
+    ]
