@@ -4,13 +4,11 @@ from modelcluster.fields import ParentalKey
 
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
 from wagtail.core.fields import RichTextField
-from wagtail.core.models import Orderable
+from wagtail.core.models import Orderable, Page
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from core.models import BasePage
 
-
-class BlogIndexPage(BasePage):
+class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
 
     def get_context(self, request, *args, **kwargs):
@@ -19,19 +17,19 @@ class BlogIndexPage(BasePage):
         context['blogpages'] = blogpages
         return context
 
-    content_panels = BasePage.content_panels + [
+    content_panels = Page.content_panels + [
         FieldPanel('intro', classname="full")
     ]
 
     subpage_types = ['blog.BlogPage']
 
 
-class BlogPage(BasePage):
+class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
 
-    content_panels = BasePage.content_panels + [
+    content_panels = Page.content_panels + [
         FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('body', classname='full'),
