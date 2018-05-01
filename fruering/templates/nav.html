@@ -1,13 +1,12 @@
 {% load wagtailcore_tags %}
-
-<nav id="medium-large-navigation" class="w3-bar w3-theme">
+<nav id="large-navigation" class="w3-bar">
     {% for menu_item in page.menu_items %}
-         <a href="{% pageurl menu_item %}" class="w3-bar-item w3-button w3-hover-blue w3-hide-small w3-hide-medium">{{ menu_item.title }}</a>
+         <a href="{% pageurl menu_item %}" class="w3-bar-item w3-button theme-hover-green w3-hide-small w3-hide-medium {% if page.id == menu_item.id %}theme-green-muted{% endif %}">{{ menu_item.title }}</a>
     {% endfor %}
-    <a href="javascript:void(0);" class="w3-bar-item w3-button w3-hover-blue w3-hide-large" onclick="toggleSmallNav()">&#9776;</a>
+    <a href="javascript:void(0);" class="w3-bar-item w3-button theme-hover-orange w3-hide-large" onclick="toggleVisible('small-nav')">&#9776;</a>
 </nav>
-<nav id="small-nav" class="w3-bar-block w3-blue w3-hide w3-hide-large">
+<nav id="small-nav" class="w3-bar-block w3-hide w3-hide-large">
     {% for menu_item in page.menu_items %}
-        <a href="{% pageurl menu_item %}" class="w3-bar-item w3-button w3-hover-theme">{{ menu_item.title }}</a>
+        <a href="{% pageurl menu_item %}" class="w3-bar-item w3-button theme-hover-green {% if page.id == menu_item.id %}theme-green-muted{% endif %}">{{ menu_item.title }}</a>
     {% endfor %}
 </nav>

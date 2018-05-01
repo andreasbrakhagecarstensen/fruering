@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6, .title {
 }
 
 .title {font-size: 48px;}
-.title a {text-decoration: none;}
+a.title{text-decoration: none;}
 @media (max-width: 600px) {
     .title {font-size: 36px;}
 }
@@ -35,3 +35,11 @@ h6{font-size:14px;}
 .w3-xxlarge{font-size:48px;}
 .w3-xxxlarge{font-size:60px;}
 .w3-jumbo{font-size:72px;}
+
+.w3-content {max-width: 900px;}
+
+#navigation.w3-container {padding-left: 0; padding-right: 0;}
+
+.pointer {cursor: pointer !important;}
+
+.fruering-button {outline: none;}
