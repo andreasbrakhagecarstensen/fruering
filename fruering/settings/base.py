@@ -158,3 +158,34 @@ WAGTAIL_SITE_NAME = "fruering"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s|%(asctime)s|%(name)s >> %(message)',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+        },
+        'wagtail': {
+            'handlers': ['console'],
+            'level': "WARNING",
+        },
+        '': {
+           'handlers': ['console'],
+           'level': 'INFO',
+        },
+    },
+}
