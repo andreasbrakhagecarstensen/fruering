@@ -49,6 +49,7 @@ class BlogPage(Page):
         FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('body', classname='full'),
+        ImageChooserPanel('featured_image'),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
 
