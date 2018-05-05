@@ -28,7 +28,11 @@ class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
-    _featured_image = models.ForeignKey('wagtailimages.Image', on_delete=models.SET_NULL, related_name='+', null=True)
+    _featured_image = models.ForeignKey('wagtailimages.Image',
+                                        on_delete=models.SET_NULL,
+                                        related_name='+',
+                                        null=True,
+                                        blank=True)
 
     def get_featured_image(self):
         if self._featured_image:
