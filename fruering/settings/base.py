@@ -164,7 +164,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s|%(asctime)s|%(name)s >> %(message)',
+            'format': '%(levelname)s|%(asctime)s|%(name)|s >> %(message)',
         },
     },
     'handlers': {
