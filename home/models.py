@@ -1,13 +1,15 @@
-from django.db import models
-
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import StreamFieldPanel
+
+from blog import blocks
 
 
 class HomePage(Page):
-    body = RichTextField(blank=True)
+    body = StreamField([
+        ('blogroll', blocks.BlogIndexPageBlock()),
+    ])
 
     content_panels = Page.content_panels + [
-        FieldPanel('body', classname="full"),
+        StreamFieldPanel('body'),
     ]
