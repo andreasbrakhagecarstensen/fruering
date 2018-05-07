@@ -40,10 +40,7 @@ class BlogPage(Page):
         else:
             return self.gallery_images.first().image
 
-    def set_featured_image(self, input):
-        self._featured_image = input
-
-    featured_image = property(get_featured_image, set_featured_image)
+    featured_image = property(get_featured_image)
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
