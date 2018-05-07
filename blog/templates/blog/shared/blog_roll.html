@@ -1,0 +1,23 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<section id="blog_entries">
+    {% for post in blogpages %}
+         <div class="w3-col">
+            <article class="w3-card-4 w3-margin">
+                {% image post.specific.featured_image fill-900x350 class="w3-image"%}
+                <div class="w3-container theme-orange">
+                    <h2>{{ post.title }}</h2>
+                </div>
+                <div class="w3-container">
+                    <p>{{ post.specific.intro }}</p>
+                    <div id="post-{{ post.id }}" class="w3-hide">
+                        {{ post.specific.body|richtext }}
+                    </div>
+                    <button id="moreButton-{{ post.id }}"
+                            class="w3-block w3-border theme-border-orange theme-hover-orange w3-padding-16 w3-margin-bottom fruering-button theme"
+                            onclick="toggleBlogPostReadMore('{{ post.id }}', 'Læs mere', 'Læs mindre')">Læs mere</button>
+                </div>
+            </article>
+        </div>
+    {% endfor %}
+</section>
