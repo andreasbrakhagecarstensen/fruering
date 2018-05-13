@@ -33,14 +33,13 @@
         {% endblock %}
     </head>
 
-    <body class="theme {% block body_class %}{% endblock %}">
+    <body class="theme-light {% block body_class %}{% endblock %}">
 <!-- Header -->
-        <header class="w3-container theme-green w3-padding-32 w3-center">
+        <header class="theme-light the w3-container w3-center">
             <a class="title" href="{% if not request.is_preview %}{% pageurl page.home %}{% else %}/{% endif %}">Fruering</a>
-            <p>Velkommen til landsbyen Fruerings hjemmeside</p>
         </header>
 <!-- Navigation -->
-        <div id="navigation" class="w3-container theme-dark">
+        <div id="navigation" class="w3-container">
             <div class="w3-content">
                 {% wagtailuserbar %}
                 {% include "nav.html" %}

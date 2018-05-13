@@ -1,41 +1,43 @@
-.theme { color: #373737 !important; background-color: #FFF !important;}
+.theme-light { color: #373737 !important; background-color: #FFF !important;}
 .theme-dark {color: #FFF !important; background-color: #373737 !important;}
+.theme-medium { color:#373737 !important; background-color: #D9D9D9 !important;}
+.theme-green { color:#FFF !important; background-color: #09809E !important;}
+.theme-orange { color:#FFF !important; background-color: #E37222 !important;}
+.theme-green-muted { color:#373737 !important; background-color: #9CD0D8 !important;}
+.theme-orange-muted { color:#373737 !important; background-color: #F1AA7E !important;}
 
-.theme-green { color:#FFF !important; background-color: #4ABDAC !important;}
-.theme-orange { color:#FFF !important; background-color: #FC4A1A !important;}
-.theme-yellow { color:#FFF !important; background-color: #F7B733 !important;}
-.theme-charcoal { color:#FFF !important; background-color: #373737 !important;}
-.theme-green-muted { color:#FFF !important; background-color: rgba(74, 189, 172, 0.51) !important;}
-.theme-orange-muted { color:#FFF !important; background-color: rgba(252, 74, 26, 0.51) !important;}
-.theme-yellow-muted { color:#FFF !important; background-color: rgba(247, 183, 51, 0.51) !important;}
-.theme-charcoal-muted { color:#FFF !important; background-color: rgba(55, 55, 55, 0.51) !important;}
+.theme-hover-light:hover {color: #373737 !important; background-color: #fff !important;}
+.theme-hover-medium:hover { color:#373737 !important; background-color: #D9D9D9 !important;}
+.theme-hover-dark:hover { color:#FFF !important; background-color: #373737 !important;}
+.theme-hover-green:hover { color:#FFF !important; background-color: #09809E !important;}
+.theme-hover-orange:hover { color:#FFF !important; background-color: #E37222 !important;}
+.theme-hover-green-muted:hover { color:#FFF !important; background-color: #9CD0D8 !important;}
+.theme-hover-orange-muted:hover { color:#FFF !important; background-color: #F1AA7E !important;}
 
-.theme-hover:hover {color: #373737 !important; background-color: #fff !important;}
-.theme-hover-green:hover { color:#FFF !important; background-color: #4ABDAC !important;}
-.theme-hover-orange:hover { color:#FFF !important; background-color: #FC4A1A !important;}
-.theme-hover-yellow:hover { color:#FFF !important; background-color: #F7B733 !important;}
-.theme-hover-charcoal:hover { color:#FFF !important; background-color: #373737 !important;}
-.theme-hover-green-muted:hover { color:#FFF !important; background-color: rgba(74, 189, 172, 0.51) !important;}
-.theme-hover-orange-muted:hover { color:#FFF !important; background-color: rgba(252, 74, 26, 0.51) !important;}
-.theme-hover-yellow-muted:hover { color:#FFF !important; background-color: rgba(247, 183, 51, 0.51) !important;}
-.theme-hover-charcoal-muted:hover { color:#FFF !important; background-color: rgba(55, 55, 55, 0.57) !important;}
+.theme-text-green {color: #09809E !important;}
+.theme-text-green-muted {color: #9CD0D8 !important;}
+.theme-text-orange {color: #E37222 !important;}
+.theme-text-orange-muted {color: #F1AA7E !important;}
+.theme-text-dark {color: #373737 !important;}
+.theme-text-light {color: #FFF !important;}
 
-.theme-text-green {color: #4ABDAC !important;}
-.theme-text-orange {color: #FC4A1A !important;}
-.theme-text-yellow {color: #F7B733 !important;}
-.theme-text-charcoal {color: #373737 !important;}
-.theme-text-clean {color: #DFDCE3 !important;}
+.theme-text-hover-green:hover {color: #09809E !important;}
+.theme-text-hover-orange:hover {color: #E37222 !important;}
+.theme-text-hover-dark:hover {color: #373737 !important;}
+.theme-text-hover-light:hover {color: #DFDCE3 !important;}
 
-.theme-border {border-color: #373737 !important;}
-.theme-border-green {border-color: #4ABDAC !important;}
-.theme-border-orange {border-color: #FC4A1A !important;}
-.theme-border-yellow {border-color: #F7B733 !important;}
-.theme-border-clean {border-color: #DFDCE3 !important;}
+.theme-border-dark {border-color: #373737 !important;}
+.theme-border-green {border-color: #09809E !important;}
+.theme-border-green-muted {border-color: #9CD0D8 !important;}
+.theme-border-orange {border-color: #E37222 !important;}
+.theme-border-orange-muted {border-color: #F1AA7E !important;}
+.theme-border-clean {border-color: #FFF !important;}
 
-.theme-hover-border:hover {border-color: #373737 !important;}
-.theme-hover-border-green:hover {border-color: #4ABDAC !important;}
-.theme-hover-border-orange:hover {border-color: #FC4A1A !important;}
-.theme-hover-border-yellow:hover {border-color: #F7B733 !important;}
-.theme-hover-border-clean:hover {border-color: #DFDCE3 !important;}
+.theme-hover-border-dark:hover {border-color: #373737 !important;}
+.theme-hover-border-green:hover {border-color: #09809E !important;}
+.theme-hover-border-green-muted:hover {border-color: #9CD0D8 !important;}
+.theme-hover-border-orange:hover {border-color: #E37222 !important;}
+.theme-hover-border-orange-muted:hover {border-color: #F1AA7E !important;}
+.theme-hover-border-light:hover {border-color: #DFDCE3 !important;}
 
 

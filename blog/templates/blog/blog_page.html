@@ -6,24 +6,11 @@
 
 {% block content %}
     <section id="blog_page">
-        <h1>{{ page.title }}</h1>
-        <span class="w3-small">{{ page.date }}</span>
-        <p>{{ page.intro }}</p>
-        {{ page.body | richtext }}
-
-            {% for item in page.gallery_images.all %}
-                {%  cycle  1 2 3 as row_item_number silent %}
-                {% if row_item_number == 1 %}
-                    <div class="w3-row-padding">
-                {% endif %}
-                        <div class="w3-col m4 w3-mobile w3-center">
-                            {% image item.image max-800x800 class="w3-image"%}
-                            <p>{{ item.caption }}</p>
-                        </div>
-                {% if row_item_number == 3 or forloop.last %}
-                    </div>
-                {% endif %}
-            {% endfor %}
-        <p><a href="{{ page.get_parent.url }}">Return to blog</a> </p>
+        {% with post=page %}
+            {% include 'blog/shared/blog_post.html' %}
+        {% endwith %}
+        <div class="w3-container w3-center">
+            <a href="{{ page.get_parent.url }}" class="w3-button theme-dark theme-hover-orange">Tilbage til alle nyheder</a>
+        </div>
     </section>
 {% endblock %}

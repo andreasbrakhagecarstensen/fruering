@@ -1,0 +1,27 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<article class="w3-margin w3-card-4 w3-margin theme-light">
+    {% image post.specific.featured_image fill-900x350 class="w3-image"%}
+    <div class="w3-container theme-light theme-green">
+        <h1>{{ post.title }}</h1>
+    </div>
+    <div class="w3-container">
+        <h2>{{ post.specific.intro }}</h2>
+        <div id="post-{{ post.id }}">
+            {{ post.specific.body|richtext }}
+        </div>
+        {% for item in page.gallery_images.all %}
+                {%  cycle  1 2 3 as row_item_number silent %}
+                {% if row_item_number == 1 %}
+                    <div class="w3-row-padding">
+                {% endif %}
+                        <div class="w3-col m4 w3-mobile w3-center">
+                            {% image item.image max-800x800 class="w3-image"%}
+                            <p>{{ item.caption }}</p>
+                        </div>
+                {% if row_item_number == 3 or forloop.last %}
+                    </div>
+                {% endif %}
+        {% endfor %}
+    </div>
+</article>
