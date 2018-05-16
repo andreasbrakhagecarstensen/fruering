@@ -1,10 +1,9 @@
 from .base import *
-import django_heroku
 
 DEBUG = False
 SECURE_SSL_REDIRECT = True
 
-django_heroku.settings(locals())
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 try:
     from .local import *

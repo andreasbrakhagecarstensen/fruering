@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+import django_heroku
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+    'storages',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -159,6 +162,8 @@ WAGTAIL_SITE_NAME = "fruering"
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
 
+
+# Logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -189,3 +194,16 @@ LOGGING = {
         },
     },
 }
+
+# Storages setup
+AWS_ACCESS_KEY_ID = "AKIAINGPEUP6V6VMR36A"
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = 'fruering-website-bucket'
+AWS_S3_FILE_OVERWRITE = False
+#AWS_IS_GZIPPED = True
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_S3_REGION_NAME = 'eu-west-2'
+
+
+# Django Heroku WhiteNoise
+django_heroku.settings(locals(), logging=False)

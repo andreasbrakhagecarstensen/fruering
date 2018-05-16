@@ -7,6 +7,8 @@ DEBUG = True
 SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['fruering-qa.herokuapp.com']
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 try:
     from .local import *
 except ImportError:
