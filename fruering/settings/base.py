@@ -160,7 +160,8 @@ WAGTAIL_SITE_NAME = "fruering"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
+HOST_NAME = os.getenv('HOST_NAME', 'example.com')
+BASE_URL = 'https://{}/'.format(HOST_NAME)
 
 
 # Logging
@@ -169,7 +170,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s|%(asctime)s|%(name)|s >> %(message)',
+            'format': '%(levelname)s %(asctime)s %(name)s >> %(message)s',
         },
     },
     'handlers': {
@@ -182,15 +183,19 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': 'WARNING',
+            'level': 'INFO',
         },
         'wagtail': {
             'handlers': ['console'],
             'level': "WARNING",
         },
+        'fruering': {
+            'handlers': ['console'],
+            'level': "INFO"
+        },
         '': {
            'handlers': ['console'],
-           'level': 'INFO',
+           'level': 'WARNING',
         },
     },
 }
