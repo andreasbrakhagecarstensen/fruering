@@ -212,3 +212,15 @@ AWS_S3_REGION_NAME = 'eu-west-2'
 
 # Django Heroku WhiteNoise
 django_heroku.settings(locals(), logging=False)
+
+# Caching
+REDIS_URL = os.getenv('REDIS_URL', '127.0.0.1:6379')
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': REDIS_URL,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
