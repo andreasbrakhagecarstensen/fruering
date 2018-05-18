@@ -7,7 +7,8 @@ from wagtail.core.fields import RichTextField
 
 
 class FormField(AbstractFormField):
-    page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
+    page = ParentalKey('FormEmailPage', on_delete=models.CASCADE, related_name='form_fields')
+
 
 class FormEmailPage(AbstractEmailForm):
     intro = RichTextField(blank=True)
@@ -23,5 +24,6 @@ class FormEmailPage(AbstractEmailForm):
                 FieldPanel('from_address', classname='col6'),
                 FieldPanel('to_address', classname='col6'),
             ]),
-        ]),
+            FieldPanel('subject'),
+        ], "Email"),
     ]
