@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'storages',
+    'widget_tweaks',
 
     'django.contrib.admin',
     'django.contrib.auth',
