@@ -1,0 +1,32 @@
+{% load wagtailcore_tags %}
+<article class="w3-margin w3-card-4 w3-margin theme-light">
+    <div class="w3-container theme-green">
+        <h1>{{ page.title }}</h1>
+    </div>
+    <div class="w3-container">
+        {{ page.intro | richtext}}
+{% if page.form_section_header %}
+    </div>
+    <div class="w3-container theme-green theme-text-light">
+        <h2>{{ page.form_section_header }}</h2>
+    </div>
+    <div class="w3-container">
+{% endif %}
+        <div class="w3-padding-small">
+            <form action="{% pageurl page %}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div id="field-label-row" class="w3-row-padding">
+                        <div id="field-label" class="w3-mobile w3-half">{{ field.label_tag }}:</div>
+                    </div>
+                    <div id="field-row" class="w3-row-padding w3-padding-small">
+                        <div id="field" class="w3-mobile w3-half">{{ field }}</div>
+                    </div>
+                {% endfor %}
+                <div class="w3-row w3-margin-top w3-margin-bottom">
+                    <input class="w3-button w3-mobile w3-half theme-orange theme-hover-dark" type="submit" value="{{ page.submit_button_text }}">
+                </div>
+            </form>
+        </div>
+    </div>
+</article>
