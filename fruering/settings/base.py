@@ -26,12 +26,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'fruering',
-    'home',
-    'search',
-    'blog',
-    'formbuilder',
-
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -44,17 +38,24 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
 
-    'modelcluster',
-    'taggit',
-    'storages',
-    'widget_tweaks',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.forms',
+
+    'modelcluster',
+    'taggit',
+    'storages',
+    'widget_tweaks',
+
+    'fruering',
+    'home',
+    'search',
+    'blog',
+    'formbuilder',
 ]
 
 MIDDLEWARE = [

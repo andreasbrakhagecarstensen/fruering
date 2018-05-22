@@ -1,10 +1,13 @@
 from django.db import models
 from django.db.models import CharField
+from django.forms import widgets
 from modelcluster.fields import ParentalKey
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel
 from wagtail.contrib.forms.edit_handlers import FormSubmissionsPanel
 from wagtail.contrib.forms.models import AbstractFormField, AbstractEmailForm
 from wagtail.core.fields import RichTextField
+
+from formbuilder.widgets import FrueringRadio
 
 
 class FormField(AbstractFormField):
@@ -32,3 +35,11 @@ class FormEmailPage(AbstractEmailForm):
             FieldPanel('subject'),
         ], "Email"),
     ]
+
+    def get_form(self, *args, **kwargs):
+        form = super().get_form(*args, **kwargs)
+
+        for name, field in form.fields.items():
+            if isinstance(field.widget, widgets.RadioSelect):
+                field.widget = FrueringRadio(field.widget.attrs, field.widget.choices)
+        return form

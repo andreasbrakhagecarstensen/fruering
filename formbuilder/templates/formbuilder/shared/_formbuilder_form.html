@@ -1,4 +1,5 @@
 {% load wagtailcore_tags %}
+{%  load widget_tweaks %}
 <article class="w3-margin w3-card-4 w3-margin theme-light">
     <div class="w3-container theme-green">
         <h1>{{ page.title }}</h1>
@@ -12,19 +13,27 @@
     </div>
     <div class="w3-container">
 {% endif %}
-        <div class="w3-padding-small">
-            <form action="{% pageurl page %}" method="post">
+        <div>
+            <form action="{% pageurl page %}" method="post" >
                 {% csrf_token %}
                 {% for field in form %}
-                    <div id="field-label-row" class="w3-row-padding">
-                        <div id="field-label" class="w3-mobile w3-half">{{ field.label_tag }}:</div>
-                    </div>
-                    <div id="field-row" class="w3-row-padding w3-padding-small">
-                        <div id="field" class="w3-mobile w3-half">{{ field }}</div>
+                    <div class="w3-margin-bottom w3-margin-top">
+                        <div id="field-label-row" class="w3-row">
+                            <div id="field-label" class="w3-mobile w3-half">{{ field.label_tag }}:</div>
+                        </div>
+                        <div id="field-row" class="w3-row">
+                            <div id="field" class="w3-mobile">
+                                {% if field.field.widget.input_type == "radio" %}
+                                    {{ field|add_class:"w3-radio w3-padding" }}
+                                {% else %}
+                                    {{ field|add_class:"w3-input w3-border w3-round"}}
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 {% endfor %}
                 <div class="w3-row w3-margin-top w3-margin-bottom">
-                    <input class="w3-button w3-mobile w3-half theme-orange theme-hover-dark" type="submit" value="{{ page.submit_button_text }}">
+                    <input class="w3-button w3-mobile w3-block theme-orange theme-hover-dark" type="submit" value="{{ page.submit_button_text }}">
                 </div>
             </form>
         </div>

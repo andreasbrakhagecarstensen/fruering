@@ -1,0 +1,8 @@
+{% with id=widget.attrs.id %}
+    {% for group, options, index in widget.optgroups %}
+        {% for option in options %}
+            {% if wrap_label %}
+                <label{% if option.attrs.id %} for="{{ option.attrs.id }}" class="w3-block"{% endif %}>{% endif %}{% include "django/forms/widgets/input.html" with widget=option %}{% if wrap_label %} {{ option.label }}</label>{% endif %}
+        {% endfor %}
+    {% endfor %}
+</ul>{% endwith %}
