@@ -1,0 +1,33 @@
+{% extends 'fruering/article.html' %}
+{% load wagtailcore_tags %}
+{% load widget_tweaks %}
+
+{% block header %} {{ page.title }}{% endblock %}
+{% block article_body %}
+    {{ page.intro | richtext}}
+    {% if page.form_section_header %}
+        {% include 'fruering/article_header.html' with article_header=page.form_section_header %}
+    {% endif %}
+    <form action="{% pageurl page %}" method="post" >
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="w3-margin-bottom w3-margin-top">
+                <div id="field-label-row" class="w3-row">
+                    <div id="field-label" class="w3-mobile w3-half">{{ field.label_tag }}:</div>
+                </div>
+                <div id="field-row" class="w3-row">
+                    <div id="field" class="w3-mobile">
+                        {% if field.field.widget.input_type == "radio" %}
+                            {{ field|add_class:"w3-radio w3-padding" }}
+                        {% else %}
+                            {{ field|add_class:"w3-input w3-border w3-round"}}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="w3-row w3-margin-top w3-margin-bottom">
+            <input class="w3-button w3-mobile w3-block theme-orange theme-hover-dark" type="submit" value="{{ page.submit_button_text }}">
+        </div>
+    </form>
+{% endblock %}
