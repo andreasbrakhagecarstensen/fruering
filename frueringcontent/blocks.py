@@ -1,10 +1,10 @@
-from wagtail.core.blocks import StreamBlock, CharBlock, RichTextBlock
+from wagtail.core.blocks import StreamBlock, CharBlock, RichTextBlock, StructBlock
 
 from django.conf import settings
 from wagtail.images.blocks import ImageChooserBlock
 
 
-class ArticleBlock(StreamBlock):
+class ArticleStreamBlock(StreamBlock):
     def __init__(self, **kwargs):
         if settings.FRUERING_CONTENT_ARTICLE_BLOCK_TYPES:
             local_blocks = []
@@ -19,5 +19,13 @@ class ArticleBlock(StreamBlock):
     image = ImageChooserBlock()
 
     class Meta:
-        icon = 'placeholder',
+        icon = 'placeholder'
+
+
+class ArticleBlock(StructBlock):
+    banner_image = ImageChooserBlock()
+    title = CharBlock(required=True)
+    body = ArticleStreamBlock()
+
+    class Meta:
         template = 'frueringcontent/article/article.html'
