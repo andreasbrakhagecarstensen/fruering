@@ -25,7 +25,7 @@ class ArticleStreamBlock(StreamBlock):
 class ArticleBlock(StructBlock):
     banner_image = ImageChooserBlock()
     title = CharBlock(required=True)
-    body = ArticleStreamBlock()
+    article_body = ArticleStreamBlock()
 
     class Meta:
         template = 'frueringcontent/article/article.html'
