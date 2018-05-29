@@ -1,7 +1,0 @@
-{% extends "base.html" %}
-
-{% load wagtailcore_tags %}
-
-{% block content %}
-        {% include 'fruering/article.html' with header=page.title article_body=page.body|richtext %}
-{% endblock %}

@@ -1,6 +1,6 @@
 {% load wagtailcore_tags %}
 <article class="w3-margin w3-card-4 theme-light">
-    {% block before_header %}{% include 'fruering/article_image.html' with image=header_image %}{% endblock %}
+    {% block before_header %}{% include 'frueringcontent/article/article_image.html' with image=header_image %}{% endblock %}
     <div class="w3-container theme-green">
         <h1>{% block header %}{{ header }}{% endblock %}</h1>
     </div>

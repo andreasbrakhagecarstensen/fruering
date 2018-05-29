@@ -12,7 +12,7 @@ class HomePage(Page):
         ('richtext_article', blocks.StructBlock(
             [
                 ('header', CharBlock()),
-                ('paragraph', RichTextBlock()),
+                ('paragraph', RichTextBlock(features=['h2', 'h3', 'h4', 'bold', 'italic', 'ol', 'ul', 'hr', 'link'])),
             ],
             template='fruering/blocks/richtext_article_block.html'))
     ])
