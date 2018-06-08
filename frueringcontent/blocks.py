@@ -14,7 +14,7 @@ class ArticleStreamBlock(StreamBlock):
         else:
             super().__init__(local_blocks=None, **kwargs)
 
-    heading = CharBlock(template='frueringcontent/article/blocks/article_header_block.html')
+    heading = CharBlock(template='frueringcontent/article/blocks/article_header_block.html', classname='title')
     text = RichTextBlock(template='frueringcontent/article/blocks/article_text_block.html', features=['h2', 'h3', 'h4', 'bold', 'italic', 'ol', 'ul', 'hr', 'link'])
     image = ImageChooserBlock(template='frueringcontent/article/blocks/article_image_block.html')
 
