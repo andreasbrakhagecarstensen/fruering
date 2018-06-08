@@ -18,14 +18,14 @@ class FormField(AbstractFormField):
 class FormEmailPage(AbstractEmailForm):
     form_body = StreamField(ArticleStreamBlock(), blank=True)
     submit_button_text = CharField(max_length=50, default='Send')
-    thank_you_text = RichTextField(blank=True)
+    thank_you_text = StreamField(ArticleStreamBlock(), blank=True)
 
     content_panels = AbstractEmailForm.content_panels + [
         FormSubmissionsPanel(),
         StreamFieldPanel('form_body'),
         InlinePanel('form_fields', label='Form fields'),
         FieldPanel('submit_button_text', classname='full'),
-        FieldPanel('thank_you_text', classname='full'),
+        StreamFieldPanel('thank_you_text', classname='full'),
         MultiFieldPanel([
             FieldRowPanel([
                 FieldPanel('from_address', classname='col6'),
