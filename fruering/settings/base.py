@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
 
     'fruering',
+    'frueringcontent',
     'home',
     'search',
     'blog',
@@ -227,3 +228,5 @@ CACHES = {
         }
     }
 }
+
+FRUERING_CONTENT_ARTICLE_BLOCK_TYPES = []

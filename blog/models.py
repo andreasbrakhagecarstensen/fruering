@@ -1,11 +1,11 @@
 from django.db import models
 
-from modelcluster.fields import ParentalKey
-
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
-from wagtail.core.fields import RichTextField
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Orderable, Page
 from wagtail.images.edit_handlers import ImageChooserPanel
+
+from frueringcontent.blocks import ArticleStreamBlock
 
 
 class BlogIndexPage(Page):
@@ -26,40 +26,19 @@ class BlogIndexPage(Page):
 
 class BlogPage(Page):
     date = models.DateField("Post date")
-    intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
-    _featured_image = models.ForeignKey('wagtailimages.Image',
+    header_image = models.ForeignKey('wagtailimages.Image',
                                         on_delete=models.SET_NULL,
                                         related_name='+',
                                         null=True,
                                         blank=True)
 
-    def get_featured_image(self):
-        if self._featured_image:
-            return self._featured_image
-        else:
-            return self.gallery_images.first().image
-
-    featured_image = property(get_featured_image)
+    body = StreamField(ArticleStreamBlock(), blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
-        FieldPanel('intro'),
-        FieldPanel('body', classname='full'),
-        ImageChooserPanel('_featured_image'),
-        InlinePanel('gallery_images', label="Gallery images"),
+        ImageChooserPanel('header_image'),
+        StreamFieldPanel('body')
     ]
 
     parent_page_types = ["blog.BlogIndexPage"]
     subpage_types = []
-
-
-class BlogPageGalleryImage(Orderable):
-    page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
-    image = models.ForeignKey('wagtailimages.Image', on_delete=models.CASCADE, related_name='+')
-    caption = models.CharField(blank=True, max_length=250)
-
-    panels = [
-        ImageChooserPanel('image'),
-        FieldPanel('caption'),
-    ]

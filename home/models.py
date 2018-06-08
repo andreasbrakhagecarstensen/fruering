@@ -4,17 +4,13 @@ from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core.blocks import CharBlock, RichTextBlock
 
 from blog import blocks
+from frueringcontent.blocks import ArticleBlock
 
 
 class HomePage(Page):
     body = StreamField([
         ('blogroll', blocks.BlogIndexPageBlock()),
-        ('richtext_article', blocks.StructBlock(
-            [
-                ('header', CharBlock()),
-                ('paragraph', RichTextBlock()),
-            ],
-            template='fruering/blocks/richtext_article_block.html'))
+        ('article', ArticleBlock())
     ])
 
     content_panels = Page.content_panels + [

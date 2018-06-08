@@ -1,0 +1,5 @@
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+{% if article_image %}
+    {% image article_image fill-900x350 class="w3-image"%}
+{% endif %}
