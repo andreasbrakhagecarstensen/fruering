@@ -2,12 +2,13 @@ from django.db import models
 from django.db.models import CharField
 from django.forms import widgets
 from modelcluster.fields import ParentalKey
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel, StreamFieldPanel
 from wagtail.contrib.forms.edit_handlers import FormSubmissionsPanel
 from wagtail.contrib.forms.models import AbstractFormField, AbstractEmailForm
-from wagtail.core.fields import RichTextField
+from wagtail.core.fields import RichTextField, StreamField
 
 from formbuilder.widgets import FrueringRadio
+from frueringcontent.blocks import ArticleStreamBlock
 
 
 class FormField(AbstractFormField):
@@ -15,15 +16,13 @@ class FormField(AbstractFormField):
 
 
 class FormEmailPage(AbstractEmailForm):
-    intro = RichTextField(blank=True)
-    form_section_header = CharField(max_length=50, blank=True)
+    form_body = StreamField(ArticleStreamBlock(), blank=True)
     submit_button_text = CharField(max_length=50, default='Send')
     thank_you_text = RichTextField(blank=True)
 
     content_panels = AbstractEmailForm.content_panels + [
         FormSubmissionsPanel(),
-        FieldPanel('intro', classname='full'),
-        FieldPanel('form_section_header', classname='title full'),
+        StreamFieldPanel('form_body'),
         InlinePanel('form_fields', label='Form fields'),
         FieldPanel('submit_button_text', classname='full'),
         FieldPanel('thank_you_text', classname='full'),

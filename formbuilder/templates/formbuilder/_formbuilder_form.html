@@ -4,10 +4,7 @@
 
 {% block header %} {{ page.title }}{% endblock %}
 {% block article_body %}
-    {{ page.intro | richtext}}
-    {% if page.form_section_header %}
-        {% include 'frueringcontent/article/article_inline_header.html' with article_header=page.form_section_header %}
-    {% endif %}
+    {{ form_body }}
     <form action="{% pageurl page %}" method="post" >
         {% csrf_token %}
         {% for field in form %}
