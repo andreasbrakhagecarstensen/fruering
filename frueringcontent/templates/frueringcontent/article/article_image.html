@@ -1,5 +1,7 @@
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
 {% if article_image %}
-    {% image article_image width-900 class="w3-image w3-center"%}
+    <div class="w3-center">
+        {% image article_image width-900 class="w3-image w3-center"%}
+    </div>
 {% endif %}
