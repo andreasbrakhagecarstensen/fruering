@@ -11,7 +11,7 @@ from .blocks import ArticleBlock
 class ContentPage(Page):
     body = StreamField([
         ('article', ArticleBlock())
-    ])
+    ], blank=True)
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body')
