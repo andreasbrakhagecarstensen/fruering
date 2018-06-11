@@ -17,6 +17,7 @@ class ArticleStreamBlock(StreamBlock):
     heading = CharBlock(template='frueringcontent/article/blocks/article_header_block.html', classname='title')
     text = RichTextBlock(template='frueringcontent/article/blocks/article_text_block.html', features=['h2', 'h3', 'h4', 'bold', 'italic', 'ol', 'ul', 'hr', 'link'])
     image = ImageChooserBlock(template='frueringcontent/article/blocks/article_image_block.html')
+    banner_image = ImageChooserBlock(template='frueringcontent/article/blocks/article_banner_image_block.html')
 
     class Meta:
         icon = 'placeholder'
