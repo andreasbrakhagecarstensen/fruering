@@ -6,6 +6,7 @@ from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.contrib.forms.edit_handlers import FormSubmissionsPanel
 from wagtail.contrib.forms.models import AbstractFormField, AbstractEmailForm
 from wagtail.core.fields import RichTextField, StreamField
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 from formbuilder.widgets import FrueringRadio
 from frueringcontent.blocks import ArticleStreamBlock
@@ -16,12 +17,18 @@ class FormField(AbstractFormField):
 
 
 class FormEmailPage(AbstractEmailForm):
+    header_image = models.ForeignKey('wagtailimages.Image',
+                                     on_delete=models.SET_NULL,
+                                     related_name='+',
+                                     null=True,
+                                     blank=True)
     form_body = StreamField(ArticleStreamBlock(required=False), blank=True)
     submit_button_text = CharField(max_length=50, default='Send')
     thank_you_text = StreamField(ArticleStreamBlock(), blank=True)
 
     content_panels = AbstractEmailForm.content_panels + [
         FormSubmissionsPanel(),
+        ImageChooserPanel('header_image'),
         StreamFieldPanel('form_body'),
         InlinePanel('form_fields', label='Form fields'),
         FieldPanel('submit_button_text', classname='full'),

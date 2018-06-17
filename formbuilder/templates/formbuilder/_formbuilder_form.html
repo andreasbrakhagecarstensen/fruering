@@ -1,7 +1,11 @@
 {% extends 'frueringcontent/article/article.html' %}
 {% load wagtailcore_tags %}
 {% load widget_tweaks %}
-
+{% block before_header %}
+    {% with header_image=page.header_image %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
 {% block header %} {{ page.title }}{% endblock %}
 {% block article_body %}
     {{ page.form_body }}
