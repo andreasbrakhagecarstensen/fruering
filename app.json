@@ -1,0 +1,38 @@
+{
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "DJANGO_SETTINGS_MODULE": "fruering.settings.qa",
+    "LOG_LEVEL": {
+      "required": true
+    },
+    "PARENT_DATABASE_URL": {
+      "required": true
+    },
+    "SECRET_KEY": {
+      "required": true
+    },
+    "WEB_CONCURRENCY": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "fruering",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
