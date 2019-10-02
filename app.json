@@ -32,7 +32,7 @@
       "required": true
     },
     "IS_DEBUG": {
-      "value": true
+      "value": "true"
     }
   },
   "formation": {
