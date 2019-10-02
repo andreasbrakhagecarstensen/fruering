@@ -31,7 +31,9 @@
     "HEROKU_PARENT_APP_NAME": {
       "required": true
     },
-    "IS_DEBUG": true
+    "IS_DEBUG": {
+      "value": "true"
+    }
   },
   "formation": {
     "web": {
