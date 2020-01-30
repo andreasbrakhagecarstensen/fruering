@@ -221,7 +221,7 @@ AWS_S3_REGION_NAME = 'eu-west-2'
 
 
 # Caching
-REDIS_URL = os.getenv('REDIS_URL', '127.0.0.1:6379')
+REDIS_URL = os.getenv('REDIS_URL', 'http://redis:6379')
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
