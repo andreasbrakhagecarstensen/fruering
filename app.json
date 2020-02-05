@@ -8,33 +8,6 @@
       "url": "heroku/python"
     }
   ],
-  "env": {
-    "AWS_SECRET_ACCESS_KEY": {
-      "required": true
-    },
-    "DJANGO_SETTINGS_MODULE": "fruering.settings.review_app",
-    "LOG_LEVEL": {
-      "required": true
-    },
-    "PARENT_DATABASE_URL": {
-      "required": true
-    },
-    "SECRET_KEY": {
-      "required": true
-    },
-    "WEB_CONCURRENCY": {
-      "required": true
-    },
-    "HEROKU_APP_NAME": {
-      "required": true
-    },
-    "HEROKU_PARENT_APP_NAME": {
-      "required": true
-    },
-    "IS_DEBUG": {
-      "value": "true"
-    }
-  },
   "formation": {
     "web": {
       "quantity": 1
